@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ProfileSkills } from "../profileSkills";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -188,7 +187,6 @@ export default function WelcomeSection() {
         </div>
 
         {/* Skill Section */}
-        <ProfileSkills />
       </motion.div>
     </section>
   );

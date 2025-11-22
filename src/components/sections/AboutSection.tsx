@@ -1,80 +1,55 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { Code, Briefcase, GraduationCap, Server } from "lucide-react";
+import Image from "next/image"
+import { motion } from "framer-motion"
 
-export default function AboutSection() {
-  const aboutData = [
-    {
-      icon: GraduationCap,
-      title: "Education & Training",
-      description:
-        "Graduated in Computer Science and Engineering (CGPA: 3.8) from Adama Science and Technology University. Completed ALX Software Engineering program specializing in full-stack development, and A2SV Data Structures training focused on algorithms and problem-solving.",
-      color: "from-blue-500 to-indigo-600",
-    },
-    {
-      icon: Briefcase,
-      title: "Professional Experience",
-      description:
-        "Worked as a Full-Stack Developer Intern at Ewnet Communication, contributing to both frontend and backend development using Next.js, Node.js, and MongoDB. Freelanced with Tech for Africa to build responsive and modern web interfaces focused on user experience and performance.",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: Code,
-      title: "Technical Expertise",
-      description:
-        "Proficient in JavaScript, TypeScript, Python, Go, PHP, and Java. Experienced with frameworks like Next.js, React, and Express, and databases such as MongoDB, MySQL, and PostgreSQL. Skilled in Git, Linux, and CI/CD pipelines for scalable web solutions.",
-      color: "from-emerald-500 to-teal-600",
-    },
-    {
-      icon: Server,
-      title: "Projects & Interests",
-      description:
-        "Developed platforms like SSEcommerce and Megegna Shop using Next.js and Node.js with full CRUD functionality and RESTful APIs. Passionate about AI integration, performance optimization, and building scalable digital systems that solve real-world problems.",
-      color: "from-orange-400 to-yellow-500",
-    },
-  ];
-
+export function AboutSection() {
   return (
-    <section className="relative pb-24 overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b pointer-events-none" />
-
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <header className="text-center mb-20">
-          <h2 className="text-5xl font-extrabold mb-4 text-gray-900">
-            About Me
-          </h2>
-          <p className="text-xl text-gray-600">
-            A full-stack developer passionate about building modern, efficient, and user-focused web applications.
-          </p>
-        </header>
-
-        <div className="grid md:grid-cols-2 gap-10">
-          {aboutData.map((item, index) => (
-            <motion.article
-              key={index}
-              className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 hover:-translate-y-2 transition-all duration-500"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.7, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
-              <div
-                className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md`}
-              >
-                <item.icon className="text-white w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {item.title}
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                {item.description}
+    <section id="about" className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl shadow-xl"
+          >
+            <Image
+              src="/photo.jpg"
+              alt="About Me"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">About Me</h2>
+              <div className="w-20 h-1.5 bg-primary rounded-full"></div>
+            </div>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                I am a dedicated developer with a passion for building digital products that solve real-world problems. 
+                With a strong foundation in web technologies, I strive to create efficient, scalable, and user-friendly applications.
               </p>
-            </motion.article>
-          ))}
+              <p>
+                My journey in tech has led me to work on a diverse range of projects, from small business websites to complex web applications. 
+                I am always eager to learn new tools and methodologies to stay ahead in this ever-evolving field.
+              </p>
+              <p>
+                When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying a good cup of coffee.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
+  )
 }
