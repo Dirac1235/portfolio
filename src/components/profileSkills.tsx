@@ -17,11 +17,14 @@ export function ProfileSkills() {
   return (
     <motion.div 
       className="mt-16 lg:mt-24"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: { opacity: 0 },
         visible: { 
           opacity: 1,
-          transition: { delay: 0.8 }
+          transition: { delay: 0.5 }
         }
       }}
     >
@@ -29,17 +32,13 @@ export function ProfileSkills() {
         className="text-xl md:text-2xl font-semibold mb-8 text-gray-900"
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: { delay: 0.9 }
-          }
+          visible: { opacity: 1, y: 0, transition: { delay: 0.6 } }
         }}
       >
         Core Skills
       </motion.h3>
       
-      <motion.div 
+      <motion.ul 
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4"
         variants={{
           hidden: { opacity: 0 },
@@ -47,22 +46,22 @@ export function ProfileSkills() {
             opacity: 1,
             transition: {
               staggerChildren: 0.1,
-              delayChildren: 1
+              delayChildren: 0.7
             }
           }
         }}
       >
-        {skills.map((skill) => (
-          <SkillItem key={skill.id} skill={skill} />
+        {skills.map((skill, index) => (
+          <SkillItem key={skill.id} skill={skill} index={index} />
         ))}
-      </motion.div>
+      </motion.ul>
     </motion.div>
   )
 }
 
-function SkillItem({ skill }: { skill: { id: number; name: string; level: number } }) {
+function SkillItem({ skill, index }: { skill: { id: number; name: string; level: number }, index: number }) {
   return (
-    <motion.div
+    <motion.li
       variants={{
         hidden: { opacity: 0, scale: 0.8 },
         visible: { 
@@ -75,18 +74,18 @@ function SkillItem({ skill }: { skill: { id: number; name: string; level: number
       whileTap={{ scale: 0.97 }}
       className="relative group overflow-hidden"
     >
-      <div className="bg-white hover:bg-gray-50 border border-gray-200 rounded-xl p-4 transition-all duration-300 h-full shadow-sm">
+      <div className="bg-white hover:bg-gray-50 border border-gray-200 rounded-xl p-4 transition-all duration-300 h-full shadow-sm hover:shadow-md hover:-translate-y-1">
         <div className="font-medium text-gray-900">{skill.name}</div>
         
-        <div className="w-full h-1.5 bg-gray-100 rounded-full mt-2">
+        <div className="w-full h-1.5 bg-gray-100 rounded-full mt-2 overflow-hidden">
           <motion.div 
             className="h-full bg-blue-600 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${skill.level}%` }}
-            transition={{ delay: 1.5, duration: 1, ease: "easeOut" }}
+            transition={{ delay: 0.8 + index * 0.1, duration: 1, ease: "easeOut" }}
           />
         </div>
       </div>
-    </motion.div>
+    </motion.li>
   )
 }

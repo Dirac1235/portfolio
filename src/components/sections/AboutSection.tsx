@@ -1,83 +1,79 @@
-'use client';
+"use client";
 
-import { Code, Briefcase, Sparkles } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Code, Briefcase, GraduationCap, Server } from "lucide-react";
 
 export default function AboutSection() {
-  const contentBlocks = [
+  const aboutData = [
     {
-      icon: Code,
-      title: 'Technical Expertise',
-      highlights: [
-        'Full-stack development specialist',
-        'Modern framework advocate',
-        'Performance optimization',
-        'CI/CD pipelines'
-      ],
-      color: 'bg-purple-600'
+      icon: GraduationCap,
+      title: "Education & Training",
+      description:
+        "Graduated in Computer Science and Engineering (CGPA: 3.8) from Adama Science and Technology University. Completed ALX Software Engineering program specializing in full-stack development, and A2SV Data Structures training focused on algorithms and problem-solving.",
+      color: "from-blue-500 to-indigo-600",
     },
     {
       icon: Briefcase,
-      title: 'Career Journey',
-      highlights: [
-        '3 years in tech industry',
-        'Team leadership',
-        'Agile methodology',
-        'Client collaboration'
-      ],
-      color: 'bg-blue-600'
+      title: "Professional Experience",
+      description:
+        "Worked as a Full-Stack Developer Intern at Ewnet Communication, contributing to both frontend and backend development using Next.js, Node.js, and MongoDB. Freelanced with Tech for Africa to build responsive and modern web interfaces focused on user experience and performance.",
+      color: "from-purple-500 to-pink-500",
     },
     {
-      icon: Sparkles,
-      title: 'Passion Projects',
-      highlights: [
-        'AI integration experiments',
-        'Developer tooling',
-        'Tech community building',
-        'Accessibility advocacy',
-        'Interactive prototypes'
-      ],
-      color: 'bg-orange-500'
-    }
+      icon: Code,
+      title: "Technical Expertise",
+      description:
+        "Proficient in JavaScript, TypeScript, Python, Go, PHP, and Java. Experienced with frameworks like Next.js, React, and Express, and databases such as MongoDB, MySQL, and PostgreSQL. Skilled in Git, Linux, and CI/CD pipelines for scalable web solutions.",
+      color: "from-emerald-500 to-teal-600",
+    },
+    {
+      icon: Server,
+      title: "Projects & Interests",
+      description:
+        "Developed platforms like SSEcommerce and Megegna Shop using Next.js and Node.js with full CRUD functionality and RESTful APIs. Passionate about AI integration, performance optimization, and building scalable digital systems that solve real-world problems.",
+      color: "from-orange-400 to-yellow-500",
+    },
   ];
 
   return (
-    <section className="relative py-24 ">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <header className="mb-20 text-center">
-          <h2 className="text-5xl font-bold mb-4 text-gray-800">
-            Building Digital Excellence
+    <section className="relative pb-24 overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 bg-gradient-to-b pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <header className="text-center mb-20">
+          <h2 className="text-5xl font-extrabold mb-4 text-gray-900">
+            About Me
           </h2>
           <p className="text-xl text-gray-600">
-            Combining technical mastery with creative problem-solving
+            A full-stack developer passionate about building modern, efficient, and user-focused web applications.
           </p>
         </header>
 
-        <div className="grid md:grid-cols-3 gap-8 px-8">
-          {contentBlocks.map((block, index) => (
-            <article
+        <div className="grid md:grid-cols-2 gap-10">
+          {aboutData.map((item, index) => (
+            <motion.article
               key={index}
-              className="group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 hover:-translate-y-2 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true }}
             >
-              <div className={`mb-6 w-fit p-4 rounded-xl ${block.color}`}>
-                <block.icon className="text-white w-8 h-8" />
+              <div
+                className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md`}
+              >
+                <item.icon className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">{block.title}</h3>
-              <ul className="space-y-4">
-                {block.highlights.map((highlight, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-                  >
-                    <span className={`w-2 h-2 mr-3 rounded-full ${block.color}`} />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </article>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                {item.title}
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                {item.description}
+              </p>
+            </motion.article>
           ))}
         </div>
-
-       
       </div>
     </section>
   );

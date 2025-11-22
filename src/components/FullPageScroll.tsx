@@ -26,10 +26,7 @@ const variants = {
     y: direction > 0 ? "100%" : "-100%",
     opacity: 0,
   }),
-  center: {
-    y: 0,
-    opacity: 1,
-  },
+  center: { y: 0, opacity: 1 },
   exit: (direction: number) => ({
     y: direction > 0 ? "-100%" : "100%",
     opacity: 0,
@@ -42,23 +39,34 @@ export default function FullPageScroll() {
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const scrollCooldown = 100; // 1 second cooldown between scrolls
+  const scrollThreshold = 1; // required delta before changing sections
+
   const handleWheel = (e: WheelEvent) => {
     if (isAnimating) return;
 
-    if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+    // Prevent rapid firing
+    if (scrollTimeout.current) return;
+
+    if (e.deltaY > scrollThreshold && currentIndex < sections.length - 1) {
       setDirection(1);
       setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
       setIsAnimating(true);
-    } else if (e.deltaY < 0 && currentIndex > 0) {
+    } else if (e.deltaY < -scrollThreshold && currentIndex > 0) {
       setDirection(-1);
       setCurrentIndex((prev) => Math.max(prev - 1, 0));
       setIsAnimating(true);
     }
+
+    // Set cooldown so multiple scrolls don’t trigger quickly
+    scrollTimeout.current = setTimeout(() => {
+      scrollTimeout.current = null;
+    }, scrollCooldown);
   };
 
   const handleNavigate = (index: number) => {
     if (isAnimating || index === currentIndex || index < 0 || index >= sections.length) return;
-
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
     setIsAnimating(true);
@@ -68,7 +76,7 @@ export default function FullPageScroll() {
     const container = containerRef.current;
     if (!container) return;
 
-    container.addEventListener("wheel", handleWheel);
+    container.addEventListener("wheel", handleWheel, { passive: false });
     return () => container.removeEventListener("wheel", handleWheel);
   }, [currentIndex, isAnimating]);
 
@@ -106,7 +114,7 @@ export default function FullPageScroll() {
             animate="center"
             exit="exit"
             transition={{
-              duration: 0.7,
+              duration: 0.9, // slightly longer transition
               ease: [0.32, 0.72, 0, 1],
             }}
             className="absolute inset-0 flex items-center justify-center"
