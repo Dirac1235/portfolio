@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Calendar } from "lucide-react"
+import { Calendar } from "lucide-react"
 
 const experiences = [
   {
@@ -41,7 +41,7 @@ export function ExperienceSection() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">Work Experience</h2>
           <p className="text-muted-foreground text-lg max-w-[42rem] mx-auto">
-            My professional journey and the companies I've had the privilege to work with.
+            My professional journey and the companies I&apos;ve had the privilege to work with.
           </p>
         </motion.div>
 

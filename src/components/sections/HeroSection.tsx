@@ -21,7 +21,7 @@ export function HeroSection() {
             <span className="text-primary">experiences that matter.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[42rem] mx-auto md:mx-0 leading-relaxed">
-            I'm a Full Stack Developer passionate about crafting accessible, pixel-perfect user interfaces that blend form and function.
+            I&apos;m a Full Stack Developer passionate about crafting accessible, pixel-perfect user interfaces that blend form and function.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
             <Button size="lg" className="h-12 px-8 text-base font-medium shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all" asChild>

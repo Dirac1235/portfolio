@@ -17,7 +17,7 @@ export function ContactSection() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">Get in Touch</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            I'm currently open to new opportunities and collaborations. 
+            I&apos;m currently open to new opportunities and collaborations. 
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>
           

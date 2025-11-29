@@ -42,7 +42,7 @@ export function ProjectsSection() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">Featured Projects</h2>
           <p className="text-muted-foreground text-lg max-w-[42rem] mx-auto">
-            Here are some of the projects I've worked on recently.
+            Here are some of the projects I&apos;ve worked on recently.
           </p>
         </motion.div>
 

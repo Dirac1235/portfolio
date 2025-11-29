@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "framer-motion"
 
 export function AboutSection() {
@@ -44,7 +43,7 @@ export function AboutSection() {
                 I am always eager to learn new tools and methodologies to stay ahead in this ever-evolving field.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying a good cup of coffee.
+                When I&apos;m not coding, you can find me exploring new technologies, contributing to open source, or enjoying a good cup of coffee.
               </p>
             </div>
           </motion.div>
