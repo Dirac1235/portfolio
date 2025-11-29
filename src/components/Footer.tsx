@@ -9,7 +9,7 @@ export function Footer() {
             </p>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://www.github.com/dirac1235" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               GitHub
             </a>
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

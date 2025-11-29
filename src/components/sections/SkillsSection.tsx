@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge"
 
 const skills = [
   "React", "Next.js", "TypeScript", "Tailwind CSS", 
-  "Node.js", "PostgreSQL", "GraphQL", "Docker",
-  "AWS", "Git", "Figma", "UI/UX Design",
-  "Redux", "Jest", "CI/CD", "Agile"
+  "Node.js", "PostgreSQL", "Docker",
+   "Git", "Figma", "UI/UX Design",
+  "Dart", "Flutter", "CI/CD", "Agile"
 ]
 
 export function SkillsSection() {

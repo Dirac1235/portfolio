@@ -5,28 +5,27 @@ import { ProjectCard } from "@/components/ProjectCard"
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    description: "A fully functional e-commerce store with cart, checkout, and payment integration. Built with scalability in mind.",
-    image: "/project1.jpg", // Placeholder
-    tags: ["Next.js", "Stripe", "Tailwind", "PostgreSQL"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Megegna Shop",
+    description: "A full-featured e-commerce platform built for the Ethiopian market. Features user authentication, product catalog, shopping cart, checkout system, and admin dashboard. Focused on performance, mobile-first design, and seamless user experience.",
+    image: "/images/megegna.png", // Replace with your actual screenshot
+    tags: ["Next.js", "Node.js", "MongoDB", "Express", "TypeScript", "Tailwind CSS", "JWT"],
+    githubUrl: "https://github.com/Dirac1235/megegna-shop", // Update if public
+    liveUrl: "https://megegna-shop.vercel.app" // Replace with real deployed link
   },
   {
-    title: "Task Management App",
-    description: "A productivity tool for managing tasks and projects with real-time updates and team collaboration features.",
-    image: "/project2.jpg", // Placeholder
-    tags: ["React", "Firebase", "DnD", "TypeScript"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "SSEcommerce",
+    description: "Scalable and secure e-commerce solution with product management, search functionality, secure authentication, and optimized checkout flow. Designed with clean architecture and responsive UI for all devices.",
+    image: "/images/ssecommerce.png",
+    tags: ["Next.js", "Node.js", "MongoDB", "REST API", "Responsive Design", "JavaScript"],
+    githubUrl: "https://github.com/Dirac1235/ssecommerce", // Update if public
   },
   {
-    title: "Portfolio Website",
-    description: "My personal portfolio website showcasing my work and skills. Designed with a focus on accessibility and performance.",
-    image: "/project3.jpg", // Placeholder
-    tags: ["Next.js", "Framer Motion", "ShadCN", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Personal Portfolio Website (This Site)",
+    description: "My developer portfolio showcasing projects, skills, and journey. Built with modern tooling for speed, accessibility, and beautiful animations.",
+    image: "/images/portfolio.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Responsive"],
+    githubUrl: "https://github.com/Dirac1235/portfolio", // Your actual repo
+    liveUrl: "https://webimuleta.dev" // Or whatever your domain is
   }
 ]
 
