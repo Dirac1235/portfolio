@@ -8,7 +8,7 @@ export function AboutSection() {
     <section id="about" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -21,7 +21,7 @@ export function AboutSection() {
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"
             />
-          </motion.div>
+          </motion.div> */}
           
           <motion.div
             initial={{ opacity: 0, x: 20 }}

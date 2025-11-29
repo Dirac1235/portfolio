@@ -12,11 +12,11 @@ export function Footer() {
             <a href="https://www.github.com/dirac1235" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               GitHub
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              LinkedIn
+            <a href="webimuleta01@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Email
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Twitter
+            <a href="https://t.me/dirac02" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Telegram
             </a>
           </div>
         </div>
