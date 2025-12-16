@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+This repository contains a personal portfolio website built with Next.js (App Router) and TypeScript.
 
-First, run the development server:
+It showcases projects, experience, skills, and contact information. The project is structured using the `app/` directory (Next.js App Router) and is styled with Tailwind CSS.
+
+## Features
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS for utility-first styling
+- Theme toggle (light/dark) using `next-themes`
+- Framer Motion for smooth animations
+- Reusable UI components (cards, buttons, badges)
+- Responsive, accessible layout with a focus on performance
+
+## Tech stack
+
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- lucide-react (icons)
+- next-themes (dark/light theme)
+
+## Getting started (local)
+
+Requirements:
+
+- Node.js 18+ (recommended)
+- npm, yarn, or pnpm
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+```
+
+Run the development server (uses Turbopack):
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+Linting:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure (important files)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — Next.js App Router routes and pages (entry: `app/page.tsx`)
+- `src/components/` — UI components, sections (Hero, About, Projects, Contact, etc.)
+- `src/components/ui/` — small design-system primitives (button, card, badge)
+- `src/lib/` — utilities and helpers
+- `public/` — static assets (images)
+- `globals.css` — global styles (Tailwind imports)
 
-## Deploy on Vercel
+A fuller structure can be explored under `src/` and `app/` — components are split into sections and smaller UI primitives.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` — start development server (Turbopack)
+- `npm run build` — build for production
+- `npm run start` — start production server
+- `npm run lint` — run linting
+
+## Deployment
+
+This project deploys well on Vercel (recommended) or any platform that supports Next.js. When deploying, set NODE_ENV to `production` and run the standard Next.js build process.
+
+## Contributing
+
+Contributions are welcome. Open an issue or submit a pull request with improvements or fixes. If you add features, please include tests or a short description of the change.
+
+## Notes / TODOs
+
+- Add a `LICENSE` file if you want to publish the project under a specific license.
+- Add contact links (email, LinkedIn) to the README or `app` if you want them displayed publicly.
+
+---
+
+If you'd like, I can add a short demo GIF, update contact info, or add a `LICENSE` file. Tell me what to include and I'll update the README accordingly.
