@@ -18,6 +18,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://webimuleta.dev"),
   title: {
     default: "Webi Muleta | Full Stack Developer",
     template: "%s | Webi Muleta"

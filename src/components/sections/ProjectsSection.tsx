@@ -8,12 +8,12 @@ import Image from "next/image"
 const projects = [
   {
     number: "01",
-    title: "Megegna Shop",
+    title: "Intent",
     description:
-      "A full-featured e-commerce platform built for the Ethiopian market. Features user authentication, product catalog, shopping cart, checkout system, and admin dashboard. Focused on performance, mobile-first design, and seamless user experience.",
-    image: "/images/megegna.png",
-    tags: ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS", "JWT"],
-    liveUrl: "https://megegna-shop.vercel.app",
+      "A desktop AI agent platform that puts your computer on autopilot. Helps professionals build tailored automation systems to solve repetitive problems — just type what you want done and Intent handles the rest.",
+    image: "/images/intent.png",
+    tags: ["AI Agent", "Desktop App", "Automation", "Next.js", "TypeScript"],
+    liveUrl: "https://intentt.vercel.app/",
   },
   {
     number: "02",
@@ -118,6 +118,7 @@ function ProjectRow({
             src={project.image}
             alt={project.title}
             fill
+            sizes="192px"
             className="object-cover"
             onError={() => setImgError(true)}
           />
