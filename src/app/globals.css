@@ -105,4 +105,9 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
+
+  ::selection {
+    background-color: #C44B4B;
+    color: #FAF8F5;
+  }
 }
