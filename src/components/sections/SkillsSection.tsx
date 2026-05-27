@@ -2,28 +2,76 @@
 
 import { motion } from "framer-motion"
 
-const skillCategories = [
+const skillRows = [
   {
     category: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Flutter", "Dart"],
-    accent: "#D4A843",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Flutter", "Dart", "HTML & CSS"],
+    accent: "#C44B4B",
+    direction: 1,
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "REST APIs"],
+    skills: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL", "JWT"],
     accent: "#5CB8B2",
+    direction: -1,
   },
   {
     category: "Tools & Workflow",
-    skills: ["Git", "Docker", "Linux", "Figma", "CI/CD", "Agile", "UI/UX Design"],
+    skills: ["Git", "Docker", "Linux", "Figma", "CI/CD", "Agile", "UI/UX Design", "VS Code", "Vercel"],
     accent: "#9B8EC4",
+    direction: 1,
   },
 ]
 
+function SkillScrollRow({ row }: { row: (typeof skillRows)[0] }) {
+  const repeated = [...row.skills, ...row.skills, ...row.skills, ...row.skills]
+
+  return (
+    <div
+      className="overflow-hidden py-1"
+      style={{
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        maskImage:
+          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+      }}
+    >
+      <motion.div
+        className="flex gap-3 w-max"
+        animate={{ x: row.direction > 0 ? ["0%", "-50%"] : ["-50%", "0%"] }}
+        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+      >
+        {repeated.map((skill, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap border"
+            style={{
+              borderColor: row.accent + "35",
+              color: row.accent,
+              backgroundColor: row.accent + "0D",
+            }}
+          >
+            {skill}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-24 sm:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <section id="skills" className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+      {/* Watermark */}
+      <span
+        aria-hidden
+        className="pointer-events-none select-none absolute -top-4 -left-4 font-serif font-black leading-none text-foreground/[0.025]"
+        style={{ fontSize: "clamp(10rem, 28vw, 20rem)", zIndex: 0 }}
+      >
+        03
+      </span>
+
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
 
         {/* Section label */}
         <motion.div
@@ -31,10 +79,10 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            03 — Skills & Expertise
+            Skills & Expertise
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground">
@@ -47,46 +95,28 @@ export function SkillsSection() {
           <div className="mt-5 h-px bg-border" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
-          {skillCategories.map((cat, catIndex) => (
+        <div className="space-y-10">
+          {skillRows.map((row, i) => (
             <motion.div
-              key={cat.category}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+              key={row.category}
+              initial={{ opacity: 0, x: row.direction > 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="space-y-5"
             >
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-0.5 h-5 rounded-full"
-                  style={{ backgroundColor: cat.accent }}
-                />
-                <h3
-                  className="text-xs font-bold tracking-[0.2em] uppercase"
-                  style={{ color: cat.accent }}
+              {/* Category header */}
+              <div className="flex items-center gap-4 mb-4 px-1">
+                <span
+                  className="text-[10px] font-bold tracking-[0.25em] uppercase"
+                  style={{ color: row.accent }}
                 >
-                  {cat.category}
-                </h3>
+                  {row.category}
+                </span>
+                <div className="flex-1 h-px" style={{ backgroundColor: row.accent + "25" }} />
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: catIndex * 0.1 + skillIndex * 0.04,
-                    }}
-                    viewport={{ once: true }}
-                    className="text-sm font-medium px-3 py-1.5 rounded-lg border border-border bg-card text-foreground hover:border-primary/40 transition-colors cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+              {/* Scrolling chips */}
+              <SkillScrollRow row={row} />
             </motion.div>
           ))}
         </div>

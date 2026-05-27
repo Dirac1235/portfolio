@@ -4,67 +4,67 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Editorial Light Mode */
-  --background: #F7F3EE;
-  --foreground: #0C0B09;
+  /* Carbon Light Mode */
+  --background: #FAF8F5;
+  --foreground: #100F0F;
 
-  --card: #EDE9E1;
-  --card-foreground: #0C0B09;
+  --card: #F2EFEB;
+  --card-foreground: #100F0F;
 
-  --popover: #EDE9E1;
-  --popover-foreground: #0C0B09;
+  --popover: #F2EFEB;
+  --popover-foreground: #100F0F;
 
-  --primary: #B8841A;
-  --primary-foreground: #F7F3EE;
+  --primary: #B23838;
+  --primary-foreground: #FAF8F5;
 
-  --secondary: #E5E0D8;
-  --secondary-foreground: #0C0B09;
+  --secondary: #EAE6E0;
+  --secondary-foreground: #100F0F;
 
-  --muted: #E0DBD2;
-  --muted-foreground: #6B6558;
+  --muted: #E2DED8;
+  --muted-foreground: #6A625D;
 
-  --accent: #E5E0D8;
-  --accent-foreground: #0C0B09;
+  --accent: #EAE6E0;
+  --accent-foreground: #100F0F;
 
   --destructive: #D64545;
-  --destructive-foreground: #F7F3EE;
+  --destructive-foreground: #FAF8F5;
 
-  --border: #D4CFC6;
-  --input: #D4CFC6;
-  --ring: #B8841A;
+  --border: #DDD8D2;
+  --input: #DDD8D2;
+  --ring: #B23838;
 
   --radius: 0.375rem;
 }
 
 .dark {
-  /* Editorial Dark Mode */
-  --background: #0C0B09;
-  --foreground: #EDE8DE;
+  /* Carbon Dark Mode */
+  --background: #100F0F;
+  --foreground: #F0EDEA;
 
-  --card: #141210;
-  --card-foreground: #EDE8DE;
+  --card: #181616;
+  --card-foreground: #F0EDEA;
 
-  --popover: #141210;
-  --popover-foreground: #EDE8DE;
+  --popover: #181616;
+  --popover-foreground: #F0EDEA;
 
-  --primary: #D4A843;
-  --primary-foreground: #0C0B09;
+  --primary: #C44B4B;
+  --primary-foreground: #F0EDEA;
 
-  --secondary: #1E1B17;
-  --secondary-foreground: #EDE8DE;
+  --secondary: #221F1F;
+  --secondary-foreground: #F0EDEA;
 
-  --muted: #1A1714;
-  --muted-foreground: #88806E;
+  --muted: #1C1A1A;
+  --muted-foreground: #8A827C;
 
-  --accent: #1E1B17;
-  --accent-foreground: #EDE8DE;
+  --accent: #221F1F;
+  --accent-foreground: #F0EDEA;
 
   --destructive: #7F1D1D;
-  --destructive-foreground: #EDE8DE;
+  --destructive-foreground: #F0EDEA;
 
-  --border: #252218;
-  --input: #252218;
-  --ring: #D4A843;
+  --border: #2E2A2A;
+  --input: #2E2A2A;
+  --ring: #C44B4B;
 }
 
 @theme inline {
@@ -91,8 +91,8 @@
   --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -103,5 +103,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
 }

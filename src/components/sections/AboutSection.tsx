@@ -3,17 +3,26 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-const facts = [
-  { label: "Based in", value: "Ethiopia" },
-  { label: "Availability", value: "Open to work" },
-  { label: "Focus", value: "Full Stack" },
-  { label: "Experience", value: "4+ years" },
+const stats = [
+  { value: "4+", label: "Years of experience" },
+  { value: "20+", label: "Projects shipped" },
+  { value: "3", label: "Companies worked" },
 ]
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <section id="about" className="py-16 sm:py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
+
+      {/* Giant watermark number */}
+      <span
+        aria-hidden
+        className="pointer-events-none select-none absolute -top-4 -left-4 font-serif font-black leading-none text-foreground/[0.025]"
+        style={{ fontSize: "clamp(10rem, 28vw, 20rem)" }}
+      >
+        01
+      </span>
+
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
 
         {/* Section label */}
         <motion.div
@@ -24,37 +33,41 @@ export function AboutSection() {
           className="mb-16"
         >
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            01 — About
+            About
           </p>
           <div className="h-px bg-border" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-28 items-start">
 
-          {/* Photo */}
+          {/* Photo with crimson offset treatment */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative aspect-[4/5] overflow-hidden rounded-xl"
+            className="relative self-start"
           >
-            <Image
-              src="/images/profile.png"
-              alt="Webi Muleta"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+            {/* Crimson offset shadow */}
+            <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-primary/15 border border-primary/20" />
+            <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-2xl border border-primary/25">
+              <Image
+                src="/images/profile.png"
+                alt="Webi Muleta"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+            </div>
           </motion.div>
 
-          {/* Text */}
+          {/* Text with left crimson accent */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             viewport={{ once: true }}
-            className="space-y-8 md:pt-4"
+            className="space-y-6 sm:space-y-8 border-l-2 border-primary pl-5 sm:pl-6 md:pt-4"
           >
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
               Developer.<br />Builder.<br />Problem solver.
@@ -77,19 +90,61 @@ export function AboutSection() {
               </p>
             </div>
 
-            {/* Key facts */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-0 pt-4 border-t border-border">
-              {facts.map((fact) => (
-                <div key={fact.label} className="pt-5">
-                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-                    {fact.label}
-                  </p>
-                  <p className="text-foreground font-medium mt-1">{fact.value}</p>
-                </div>
-              ))}
+            <div className="flex items-center gap-3 flex-wrap">
+              <a
+                href="mailto:webimuleta01@gmail.com"
+                className="text-sm font-semibold text-primary hover:underline underline-offset-4"
+              >
+                webimuleta01@gmail.com
+              </a>
+              <span className="text-border select-none">·</span>
+              <a
+                href="https://github.com/Dirac1235"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                GitHub
+              </a>
+              <span className="text-border select-none">·</span>
+              <a
+                href="https://www.linkedin.com/in/webi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
           </motion.div>
         </div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-3 gap-4 mt-20 pt-10 border-t border-border"
+        >
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+              viewport={{ once: true }}
+              className="text-center space-y-1"
+            >
+              <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-none">
+                {stat.value}
+              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-snug pt-2">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

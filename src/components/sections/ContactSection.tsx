@@ -1,40 +1,42 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Mail, Github, Linkedin, Send, Code2 } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Send, Code2 } from "lucide-react"
 
 const socials = [
-  {
-    label: "GitHub",
-    href: "https://github.com/Dirac1235",
-    icon: Github,
-    description: "See my code",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/webi",
-    icon: Linkedin,
-    description: "Connect with me",
-  },
-  {
-    label: "Telegram",
-    href: "https://t.me/dirac02",
-    icon: Send,
-    description: "Message me",
-  },
-  {
-    label: "LeetCode",
-    href: "https://leetcode.com/Dirac1235",
-    icon: Code2,
-    description: "Problem solving",
-  },
+  { label: "GitHub", href: "https://github.com/Dirac1235", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/webi", icon: Linkedin },
+  { label: "Telegram", href: "https://t.me/dirac02", icon: Send },
+  { label: "LeetCode", href: "https://leetcode.com/Dirac1235", icon: Code2 },
 ]
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+
+      {/* Watermark */}
+      <span
+        aria-hidden
+        className="pointer-events-none select-none absolute -top-4 -left-4 font-serif font-black leading-none text-foreground/[0.025]"
+        style={{ fontSize: "clamp(10rem, 28vw, 20rem)", zIndex: 0 }}
+      >
+        05
+      </span>
+
+      {/* Subtle crimson glow at center */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          width: 600,
+          height: 600,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(196,75,75,0.07) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
 
         {/* Section label */}
         <motion.div
@@ -42,67 +44,85 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-20"
         >
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            05 — Contact
+            Contact
           </p>
           <div className="h-px bg-border" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        {/* Centered content */}
+        <div className="max-w-3xl mx-auto text-center space-y-10">
 
-          {/* Left: heading + CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight"
           >
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground leading-tight">
-              Let&apos;s build<br />something great.
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-sm">
-              I&apos;m currently open to new opportunities and collaborations.
-              Whether you have a project in mind or just want to say hi — I&apos;d love to hear from you.
-            </p>
-            <Button
-              size="lg"
-              className="h-12 px-8 text-sm font-semibold tracking-wide shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
-              asChild
-            >
-              <a href="mailto:webimuleta01@gmail.com">
-                <Mail className="mr-2 h-4 w-4" />
-                Say Hello
-              </a>
-            </Button>
-          </motion.div>
+            Let&apos;s build<br />something great.
+          </motion.h2>
 
-          {/* Right: social links grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto"
           >
-            {socials.map((social) => {
+            Open to new opportunities and collaborations. Whether you have a
+            project in mind or just want to say hi — my inbox is open.
+          </motion.p>
+
+          {/* Email as a large styled link */}
+          <motion.a
+            href="mailto:webimuleta01@gmail.com"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="group inline-flex items-center gap-2 font-serif text-xl sm:text-2xl font-bold text-primary hover:text-foreground transition-colors border-b-2 border-primary/40 hover:border-primary pb-1"
+          >
+            webimuleta01@gmail.com
+            <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </motion.a>
+
+          {/* Divider */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="h-px bg-border origin-center"
+          />
+
+          {/* Social links strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-1 flex-wrap"
+          >
+            {socials.map((social, i) => {
               const Icon = social.icon
               return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col gap-3 p-5 rounded-xl border border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all duration-200"
-                >
-                  <Icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">{social.label}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{social.description}</p>
-                  </div>
-                </a>
+                <div key={social.label} className="flex items-center">
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2 px-4 rounded-lg hover:bg-primary/5"
+                  >
+                    <Icon className="h-4 w-4" />
+                    {social.label}
+                  </a>
+                  {i < socials.length - 1 && (
+                    <span className="text-border select-none text-lg mx-1">·</span>
+                  )}
+                </div>
               )
             })}
           </motion.div>
