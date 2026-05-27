@@ -12,17 +12,18 @@ export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Your Name",
-    "url": "https://example.com",
+    "name": "Webi Muleta",
+    "url": "https://webimuleta.dev",
     "sameAs": [
-      "https://github.com/yourhandle",
-      "https://linkedin.com/in/yourhandle",
-      "https://twitter.com/yourhandle"
+      "https://github.com/Dirac1235",
+      "https://www.linkedin.com/in/webi",
+      "https://t.me/dirac02",
+      "https://leetcode.com/Dirac1235",
     ],
     "jobTitle": "Full Stack Developer",
     "worksFor": {
       "@type": "Organization",
-      "name": "Self-Employed"
+      "name": "Tech for Africa"
     }
   }
 

@@ -1,49 +1,53 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio | Full Stack Developer",
-    template: "%s | Portfolio"
+    default: "Webi Muleta | Full Stack Developer",
+    template: "%s | Webi Muleta"
   },
-  description: "A showcase of my work as a Full Stack Developer specializing in React, Next.js, and modern web technologies.",
-  keywords: ["Full Stack Developer", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Development", "Portfolio"],
-  authors: [{ name: "Your Name", url: "https://example.com" }],
-  creator: "Your Name",
+  description: "Full Stack Developer specializing in React, Next.js, and building impactful digital products.",
+  keywords: ["Full Stack Developer", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Development", "Portfolio", "Webi Muleta"],
+  authors: [{ name: "Webi Muleta", url: "https://webimuleta.dev" }],
+  creator: "Webi Muleta",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://example.com",
-    title: "Portfolio | Full Stack Developer",
-    description: "A showcase of my work as a Full Stack Developer specializing in React, Next.js, and modern web technologies.",
-    siteName: "Portfolio",
+    url: "https://webimuleta.dev",
+    title: "Webi Muleta | Full Stack Developer",
+    description: "Full Stack Developer specializing in React, Next.js, and building impactful digital products.",
+    siteName: "Webi Muleta",
     images: [
       {
-        url: "/og-image.jpg", // You should add an actual OG image to public/
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Portfolio Preview",
+        alt: "Webi Muleta — Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio | Full Stack Developer",
-    description: "A showcase of my work as a Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+    title: "Webi Muleta | Full Stack Developer",
+    description: "Full Stack Developer specializing in React, Next.js, and building impactful digital products.",
     images: ["/og-image.jpg"],
-    creator: "@yourhandle",
+    creator: "@dirac1235",
   },
   icons: {
     icon: "/favicon.ico",
@@ -55,8 +59,8 @@ export const metadata: Metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#F7F3EE" },
+    { media: "(prefers-color-scheme: dark)", color: "#0C0B09" },
   ],
 };
 
@@ -67,17 +71,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

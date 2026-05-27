@@ -55,21 +55,27 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="projects" className="py-24 sm:py-32 bg-background">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center space-y-4 mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-[42rem] mx-auto">
-            Here are some of the projects I&apos;ve worked on recently.
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-muted-foreground mb-3">
+            04 — Featured Projects
           </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground">
+              Featured Projects
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
+              A selection of things I&apos;ve built recently.
+            </p>
+          </div>
+          <div className="mt-5 h-px bg-border" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -39,8 +39,8 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity text-primary">
-            Portfolio.
+          <Link href="/" className="font-serif text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity text-primary">
+            WM.
           </Link>
 
           {/* Desktop Navigation */}

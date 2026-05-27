@@ -215,10 +215,10 @@ export function ExperienceSection() {
           className="mb-16 sm:mb-20"
         >
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            Career Path
+            02 — Career Path
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-none">
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground leading-none">
               Work Experience
             </h2>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">

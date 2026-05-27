@@ -4,81 +4,67 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Option A — Blue/Slate Professional */
-  /* Light Mode */
-  --background: #F5F7FA;
-  /* Surface */
-  --foreground: #1A1A1A;
-  /* Text */
+  /* Editorial Light Mode */
+  --background: #F7F3EE;
+  --foreground: #0C0B09;
 
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
+  --card: #EDE9E1;
+  --card-foreground: #0C0B09;
 
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
+  --popover: #EDE9E1;
+  --popover-foreground: #0C0B09;
 
-  --primary: #3A5FFF;
-  /* Electric Blue */
-  --primary-foreground: #FFFFFF;
+  --primary: #B8841A;
+  --primary-foreground: #F7F3EE;
 
-  --secondary: #E2E8F0;
-  /* Slate 200 */
-  --secondary-foreground: #1E293B;
+  --secondary: #E5E0D8;
+  --secondary-foreground: #0C0B09;
 
-  --muted: #F1F5F9;
-  /* Slate 100 */
-  --muted-foreground: #64748B;
-  /* Slate 500 */
+  --muted: #E0DBD2;
+  --muted-foreground: #6B6558;
 
-  --accent: #F1F5F9;
-  --accent-foreground: #1E293B;
+  --accent: #E5E0D8;
+  --accent-foreground: #0C0B09;
 
-  --destructive: #EF4444;
-  --destructive-foreground: #FFFFFF;
+  --destructive: #D64545;
+  --destructive-foreground: #F7F3EE;
 
-  --border: #E5E7EB;
-  /* Stroke */
-  --input: #E5E7EB;
-  --ring: #3A5FFF;
+  --border: #D4CFC6;
+  --input: #D4CFC6;
+  --ring: #B8841A;
 
-  --radius: 0.5rem;
+  --radius: 0.375rem;
 }
 
 .dark {
-  /* Dark Mode */
-  --background: #0F172A;
-  /* Dark Surface */
-  --foreground: #F1F5F9;
-  /* Dark Text */
+  /* Editorial Dark Mode */
+  --background: #0C0B09;
+  --foreground: #EDE8DE;
 
-  --card: #1E293B;
-  /* Slate 800 */
-  --card-foreground: #F1F5F9;
+  --card: #141210;
+  --card-foreground: #EDE8DE;
 
-  --popover: #1E293B;
-  --popover-foreground: #F1F5F9;
+  --popover: #141210;
+  --popover-foreground: #EDE8DE;
 
-  --primary: #3A5FFF;
-  /* Electric Blue */
-  --primary-foreground: #FFFFFF;
+  --primary: #D4A843;
+  --primary-foreground: #0C0B09;
 
-  --secondary: #334155;
-  /* Slate 700 */
-  --secondary-foreground: #F8FAFC;
+  --secondary: #1E1B17;
+  --secondary-foreground: #EDE8DE;
 
-  --muted: #1E293B;
-  --muted-foreground: #94A3B8;
-  /* Slate 400 */
+  --muted: #1A1714;
+  --muted-foreground: #88806E;
 
-  --accent: #1E293B;
-  --accent-foreground: #F8FAFC;
+  --accent: #1E1B17;
+  --accent-foreground: #EDE8DE;
 
   --destructive: #7F1D1D;
-  --destructive-foreground: #F8FAFC;
+  --destructive-foreground: #EDE8DE;
 
-  --border: #334155;
-  --input: #334155;
-  --ring: #3A5FFF;
+  --border: #252218;
+  --input: #252218;
+  --ring: #D4A843;
 }
 
 @theme inline {
@@ -105,6 +91,8 @@
   --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
 @layer base {
@@ -114,5 +102,6 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
   }
 }
