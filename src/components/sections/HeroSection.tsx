@@ -188,7 +188,7 @@ export function HeroSection() {
                   <a href="#projects">View Work <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
                 <Button size="lg" variant="outline" className="h-12 px-8 text-sm font-semibold tracking-wide border-2" asChild>
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/resume" target="_blank" rel="noopener noreferrer">
                     Download CV <Download className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
