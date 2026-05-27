@@ -2,12 +2,18 @@
 
 import { Printer } from "lucide-react"
 
+const printStyles = `
+  @media print {
+    @page { margin: 0; size: A4; }
+  }
+`
+
 const contact = {
   email: "webimuleta01@gmail.com",
   github: "github.com/Dirac1235",
   linkedin: "linkedin.com/in/webi",
   leetcode: "leetcode.com/Dirac1235",
-  website: "webimuleta.dev",
+  website: "webi-muleta.vercel.app",
 }
 
 const experience = [
@@ -66,7 +72,7 @@ const projects = [
   },
   {
     title: "Portfolio",
-    url: "webimuleta.dev",
+    url: "webi-muleta.vercel.app",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     description:
       "Personal developer portfolio with animated sections, dark/light theming, and a focus on performance and accessibility.",
@@ -82,6 +88,7 @@ const skills = {
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-[#F5F2EE] print:bg-white">
+      <style>{printStyles}</style>
 
       {/* Print button — hidden when printing */}
       <div className="print:hidden flex justify-center pt-8 pb-4">
