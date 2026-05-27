@@ -49,11 +49,6 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
     creator: "@dirac1235",
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
   manifest: "/manifest.json",
 };
 
