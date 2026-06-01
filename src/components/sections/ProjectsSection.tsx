@@ -26,15 +26,24 @@ const projects = [
   },
   {
     number: "03",
-    title: "Portfolio Site",
+    title: "SymDoc",
     description:
-      "My developer portfolio showcasing projects, skills, and journey. Built with modern tooling for speed, accessibility, and beautiful animations.",
-    image: "/images/portfolio.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-    githubUrl: "https://github.com/Dirac1235/portfolio",
-    liveUrl: "https://webimuleta.dev",
+      "Generate, refine, and publish high-quality system prompts for AI agents. Create with AI assistance, iterate in real-time, and share your best work with the community.",
+    image: "/images/symdoc.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDb"],
+    liveUrl: "https://sym-doc.vercel.app/",
+  },
+  {
+    number: "04",
+    title: "Sitota",
+    description:
+      "Elevate your connections. Render custom brand assets instantly onto our luxurious, organic items with AI precision, and send comfort globally.",
+    image: "/images/sitota.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres"],
+    liveUrl: "https://sitota-nu.vercel.app/",
   },
 ]
+
 
 function ProjectRow({
   project,
