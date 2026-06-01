@@ -41,6 +41,7 @@ const projects = [
     image: "/images/sitota.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres"],
     liveUrl: "https://sitota-nu.vercel.app/",
+    githubUrl:""
   },
 ]
 
