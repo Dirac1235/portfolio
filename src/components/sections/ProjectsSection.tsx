@@ -78,7 +78,7 @@ function ProjectRow({
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 leading-tight">
               {project.title}
             </h3>
-            <div className="flex items-center gap-1.5 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0">
+            <div className="flex items-center gap-1.5 mt-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
