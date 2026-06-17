@@ -25,7 +25,7 @@ const printStyles = `
     /* Hide any screen-only spacing */
     .print\\:hidden { display: none !important; }
   }
-`
+`;
 
 const contact = {
   email: "webimuleta01@gmail.com",
@@ -158,7 +158,6 @@ export default function ResumePage() {
         className="mx-auto bg-white shadow-xl print:shadow-none cv-sheet"
         style={{ width: "210mm", height: "297mm", padding: "14mm 16mm" }}
       >
-
         {/* ── Header ── */}
         <header className="mb-6 pb-5 border-b-2 border-[#C44B4B] cv-header">
           <h1 className="font-serif text-[32px] font-black tracking-tight text-[#100F0F] leading-none mb-1">
