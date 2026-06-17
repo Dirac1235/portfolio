@@ -1,20 +1,40 @@
-"use client"
+"use client";
 
-import { Printer } from "lucide-react"
+import { Printer } from "lucide-react";
 
 const printStyles = `
   @media print {
     @page { margin: 0; size: A4; }
+    html, body {
+      height: 297mm;
+      margin: 0;
+      -webkit-print-color-adjust: exact;
+    }
+    /* Force the CV sheet to exactly one A4 page */
+    .cv-sheet {
+      height: 297mm !important;
+      box-sizing: border-box !important;
+      padding: 12mm 12mm !important;
+      overflow: hidden !important;
+    }
+    /* Avoid breaking inside these major blocks where possible */
+    .cv-header, .cv-section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    /* Hide any screen-only spacing */
+    .print\\:hidden { display: none !important; }
   }
 `
 
 const contact = {
   email: "webimuleta01@gmail.com",
   github: "github.com/Dirac1235",
-  linkedin: "linkedin.com/in/webi",
+  linkedin: "www.linkedin.com/in/webi",
+  telegram: "t.me/dirac02",
   leetcode: "leetcode.com/Dirac1235",
   website: "webi-muleta.vercel.app",
-}
+};
 
 const experience = [
   {
@@ -23,22 +43,20 @@ const experience = [
     period: "2025 — Present",
     location: "Remote",
     points: [
-      "Built and shipped modern, responsive web interfaces using Next.js and Tailwind CSS for African-focused tech initiatives.",
-      "Designed component libraries focused on reusability and performance, reducing development time across projects.",
-      "Integrated third-party REST APIs and implemented authentication flows with JWT and session management.",
-      "Collaborated directly with clients to translate requirements into clean, maintainable production code.",
+      "Built and maintained modern, responsive web interfaces using Next.js and Tailwind CSS.",
+      "Focused on component reusability, performance optimizations, and seamless API integration.",
+      "Delivered high-quality user experiences for African-focused tech initiatives.",
     ],
   },
   {
     role: "Full Stack Developer Intern",
     company: "Ewnet Communication",
     period: "2023",
-    location: "Addis Ababa, Ethiopia",
+    location: "On-site",
     points: [
-      "Developed full-stack web applications using Next.js, Node.js, Express, and MongoDB.",
-      "Built RESTful APIs consumed by web and mobile clients, handling CRUD operations and business logic.",
-      "Implemented responsive UIs from design mockups with a focus on accessibility and cross-browser compatibility.",
-      "Participated in code reviews and collaborated in an Agile team environment using Git-based workflows.",
+      "Built full-stack web applications with Next.js, Node.js, Express, and MongoDB.",
+      "Implemented RESTful APIs, handled database operations, and shipped responsive UIs.",
+      "Collaborated with team members to deliver clean, maintainable solutions.",
     ],
   },
   {
@@ -47,43 +65,77 @@ const experience = [
     period: "2021 — 2022",
     location: "Remote",
     points: [
-      "Completed an intensive 12-month, project-based software engineering program with 1000+ hours of hands-on coding.",
-      "Mastered low-level programming in C, systems programming in Python, and modern JavaScript.",
-      "Built full-stack projects covering REST APIs, database design, Linux administration, and backend architecture.",
-      "Collaborated with peers across Africa on real-world engineering challenges using Git and Agile methodologies.",
+      "Completed an intensive, project-based software engineering program specializing in full-stack development.",
+      "Gained hands-on experience in C, Python, JavaScript, Linux, and backend architecture.",
+      "Delivered real-world projects and collaborated with peers across distributed teams.",
     ],
   },
-]
+];
 
 const projects = [
   {
     title: "Intent",
     url: "intentt.vercel.app",
-    tags: ["Next.js", "TypeScript", "AI Agent", "Automation"],
+    tags: ["AI Agent", "Desktop App", "Automation", "Next.js", "TypeScript"],
     description:
-      "A desktop AI agent platform that puts your computer on autopilot. Helps professionals automate repetitive workflows — users describe a task in plain language and Intent executes it.",
+      "A desktop AI agent platform that puts your computer on autopilot. Helps professionals build tailored automation systems to solve repetitive problems.",
   },
   {
     title: "Revcom",
     url: "revecom.vercel.app",
-    tags: ["Next.js", "Node.js", "MongoDB", "REST API"],
+    tags: ["Next.js", "Node.js", "MongoDB", "REST API", "JavaScript"],
     description:
-      "Ethiopia's B2B procurement marketplace connecting buyers with verified suppliers. Features live procurement requests, real-time quote management, bulk product catalog, and escrow-protected payments.",
+      "Ethiopia's #1 B2B procurement marketplace connecting buyers with verified suppliers. Features live procurement requests, real-time quote management, and escrow-protected payments.",
   },
   {
-    title: "Portfolio",
-    url: "webi-muleta.vercel.app",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    title: "SymDoc",
+    url: "sym-doc.vercel.app",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDb"],
     description:
-      "Personal developer portfolio with animated sections, dark/light theming, and a focus on performance and accessibility.",
+      "Generate, refine, and publish high-quality system prompts for AI agents. Create with AI assistance and iterate in real-time.",
   },
-]
+  {
+    title: "Sitota",
+    url: "sitota-nu.vercel.app",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres"],
+    description:
+      "Render custom brand assets onto products with AI precision and send comfort globally.",
+  },
+];
 
 const skills = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Flutter", "Dart", "HTML & CSS"],
-  Backend: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL", "JWT"],
-  "Tools & Workflow": ["Git", "Docker", "Linux", "Figma", "CI/CD", "Agile", "UI/UX Design", "Vercel"],
-}
+  Frontend: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Flutter",
+    "Dart",
+    "HTML & CSS",
+  ],
+  Backend: [
+    "Node.js",
+    "Express",
+    "Python",
+    "PostgreSQL",
+    "MongoDB",
+    "REST APIs",
+    "GraphQL",
+    "JWT",
+  ],
+  "Tools & Workflow": [
+    "Git",
+    "Docker",
+    "Linux",
+    "Figma",
+    "CI/CD",
+    "Agile",
+    "UI/UX Design",
+    "VS Code",
+    "Vercel",
+  ],
+};
 
 export default function ResumePage() {
   return (
@@ -103,12 +155,12 @@ export default function ResumePage() {
 
       {/* CV sheet */}
       <div
-        className="mx-auto bg-white shadow-xl print:shadow-none"
-        style={{ width: "210mm", minHeight: "297mm", padding: "14mm 16mm" }}
+        className="mx-auto bg-white shadow-xl print:shadow-none cv-sheet"
+        style={{ width: "210mm", height: "297mm", padding: "14mm 16mm" }}
       >
 
         {/* ── Header ── */}
-        <header className="mb-6 pb-5 border-b-2 border-[#C44B4B]">
+        <header className="mb-6 pb-5 border-b-2 border-[#C44B4B] cv-header">
           <h1 className="font-serif text-[32px] font-black tracking-tight text-[#100F0F] leading-none mb-1">
             Webi Muleta
           </h1>
@@ -116,40 +168,79 @@ export default function ResumePage() {
             Full Stack Developer
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1 text-[11px] text-[#4A4440]">
-            <a href={`mailto:${contact.email}`} className="hover:text-[#C44B4B]">{contact.email}</a>
+            <a
+              href={`mailto:${contact.email}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.email}
+            </a>
             <span className="text-[#C44B4B]">·</span>
-            <a href={`https://${contact.website}`} className="hover:text-[#C44B4B]">{contact.website}</a>
+            <a
+              href={`https://${contact.website}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.website}
+            </a>
             <span className="text-[#C44B4B]">·</span>
-            <a href={`https://${contact.github}`} className="hover:text-[#C44B4B]">{contact.github}</a>
+            <a
+              href={`https://${contact.github}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.github}
+            </a>
             <span className="text-[#C44B4B]">·</span>
-            <a href={`https://${contact.linkedin}`} className="hover:text-[#C44B4B]">{contact.linkedin}</a>
+            <a
+              href={`https://${contact.linkedin}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.linkedin}
+            </a>
             <span className="text-[#C44B4B]">·</span>
-            <a href={`https://${contact.leetcode}`} className="hover:text-[#C44B4B]">{contact.leetcode}</a>
+            <a
+              href={`https://${contact.telegram}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.telegram}
+            </a>
+            <span className="text-[#C44B4B]">·</span>
+            <a
+              href={`https://${contact.leetcode}`}
+              className="hover:text-[#C44B4B]"
+            >
+              {contact.leetcode}
+            </a>
           </div>
         </header>
 
         {/* ── Summary ── */}
-        <section className="mb-5">
+        <section className="mb-5 cv-section">
           <SectionHeading>Summary</SectionHeading>
           <p className="text-[11.5px] text-[#3A3330] leading-relaxed">
-            Full Stack Developer with 4+ years of experience designing and shipping accessible,
-            pixel-perfect web products — from REST APIs and database architecture to polished,
-            responsive UIs. Experienced across the full delivery lifecycle: requirements, design,
-            implementation, and deployment. Passionate about clean code, great user experiences,
-            and building software that creates real impact.
+            I&apos;m a Full Stack Developer with a passion for building
+            impactful digital products. I specialize in crafting fast,
+            accessible, and beautifully designed web applications — from the API
+            layer to the UI. With experience across e-commerce, B2B
+            marketplaces, and consumer apps, I bring both technical depth and
+            product thinking to every project. I also contribute to open source
+            and sharpen my problem-solving skills on LeetCode.
           </p>
         </section>
 
         {/* ── Experience ── */}
-        <section className="mb-5">
+        <section className="mb-5 cv-section">
           <SectionHeading>Experience</SectionHeading>
           <div className="space-y-4">
             {experience.map((exp) => (
               <div key={exp.company}>
                 <div className="flex items-baseline justify-between mb-0.5">
                   <div>
-                    <span className="text-[12.5px] font-bold text-[#100F0F]">{exp.role}</span>
-                    <span className="text-[11px] text-[#C44B4B] font-semibold"> · {exp.company}</span>
+                    <span className="text-[12.5px] font-bold text-[#100F0F]">
+                      {exp.role}
+                    </span>
+                    <span className="text-[11px] text-[#C44B4B] font-semibold">
+                      {" "}
+                      · {exp.company}
+                    </span>
                   </div>
                   <div className="text-[10.5px] text-[#6A625D] whitespace-nowrap ml-4 shrink-0">
                     {exp.period} · {exp.location}
@@ -157,8 +248,13 @@ export default function ResumePage() {
                 </div>
                 <ul className="mt-1 space-y-0.5">
                   {exp.points.map((point, i) => (
-                    <li key={i} className="flex gap-2 text-[11px] text-[#3A3330] leading-snug">
-                      <span className="text-[#C44B4B] mt-[3px] shrink-0">›</span>
+                    <li
+                      key={i}
+                      className="flex gap-2 text-[11px] text-[#3A3330] leading-snug"
+                    >
+                      <span className="text-[#C44B4B] mt-[3px] shrink-0">
+                        ›
+                      </span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -169,14 +265,19 @@ export default function ResumePage() {
         </section>
 
         {/* ── Projects ── */}
-        <section className="mb-5">
+        <section className="mb-5 cv-section">
           <SectionHeading>Selected Projects</SectionHeading>
           <div className="space-y-3">
             {projects.map((p) => (
               <div key={p.title}>
                 <div className="flex items-baseline gap-2 mb-0.5">
-                  <span className="text-[12.5px] font-bold text-[#100F0F]">{p.title}</span>
-                  <a href={`https://${p.url}`} className="text-[10px] text-[#C44B4B] hover:underline">
+                  <span className="text-[12.5px] font-bold text-[#100F0F]">
+                    {p.title}
+                  </span>
+                  <a
+                    href={`https://${p.url}`}
+                    className="text-[10px] text-[#C44B4B] hover:underline"
+                  >
                     {p.url}
                   </a>
                   <div className="flex flex-wrap gap-1 ml-auto">
@@ -190,14 +291,16 @@ export default function ResumePage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-[11px] text-[#3A3330] leading-snug">{p.description}</p>
+                <p className="text-[11px] text-[#3A3330] leading-snug">
+                  {p.description}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
         {/* ── Skills ── */}
-        <section className="mb-5">
+        <section className="mb-5 cv-section">
           <SectionHeading>Skills</SectionHeading>
           <div className="space-y-1.5">
             {Object.entries(skills).map(([category, items]) => (
@@ -218,24 +321,31 @@ export default function ResumePage() {
           <SectionHeading>Education</SectionHeading>
           <div className="flex items-baseline justify-between">
             <div>
-              <span className="text-[12.5px] font-bold text-[#100F0F]">Full Stack Software Engineering</span>
-              <span className="text-[11px] text-[#C44B4B] font-semibold"> · ALX Africa</span>
+              <span className="text-[12.5px] font-bold text-[#100F0F]">
+                Full Stack Software Engineering
+              </span>
+              <span className="text-[11px] text-[#C44B4B] font-semibold">
+                {" "}
+                · ALX Africa
+              </span>
             </div>
-            <span className="text-[10.5px] text-[#6A625D] whitespace-nowrap ml-4">2021 — 2022 · Remote</span>
+            <span className="text-[10.5px] text-[#6A625D] whitespace-nowrap ml-4">
+              2021 — 2022 · Remote
+            </span>
           </div>
           <p className="mt-1 text-[11px] text-[#3A3330] leading-snug">
-            Intensive 12-month software engineering program covering systems programming, full-stack web development,
-            algorithms, and real-world project delivery. Equivalent to a professional engineering bootcamp with
-            rigorous peer evaluation.
+            Intensive 12-month software engineering program covering systems
+            programming, full-stack web development, algorithms, and real-world
+            project delivery. Equivalent to a professional engineering bootcamp
+            with rigorous peer evaluation.
           </p>
         </section>
-
       </div>
 
       {/* Bottom spacing for screen view */}
       <div className="print:hidden h-12" />
     </div>
-  )
+  );
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
@@ -246,5 +356,5 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
       </h2>
       <div className="flex-1 h-px bg-[#E8E3DE]" />
     </div>
-  )
+  );
 }
